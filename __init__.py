@@ -2,7 +2,7 @@ import os
 from flask import Flask, render_template, redirect, url_for
 from forms import UploadForm
 from utils import *
-import sudukoSolver
+import SudokuSolver
 from flask_wtf.file import FileField
 from werkzeug.utils import secure_filename
 app = Flask(__name__)
@@ -63,7 +63,7 @@ def index():
             #### 5. FIND SOLUTION OF THE BOARD
             board = np.array_split(numbers,9)
             
-            sudukoSolver.solve(board)
+            SudokuSolver.solve(board)
             print("here",board)
             return render_template('sud.html', list=board)
             # except:
